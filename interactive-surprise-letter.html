@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Surprise Letter</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #f5f7fa, #c3cfe2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .container {
+      text-align: center;
+    }
+    .envelope {
+      width: 200px;
+      height: 150px;
+      background-color: #ff7675;
+      position: relative;
+      cursor: pointer;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s;
+    }
+    .envelope:hover {
+      transform: scale(1.05);
+    }
+    .flap {
+      position: absolute;
+      top: -50px;
+      left: 0;
+      width: 200px;
+      height: 100px;
+      background-color: #d63031;
+      clip-path: polygon(0 100%, 50% 0, 100% 100%);
+    }
+    .message-box {
+      margin-top: 30px;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      max-width: 300px;
+      display: none;
+      animation: fadeIn 1s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="envelope" onclick="openMessage()">
+      <div class="flap"></div>
+    </div>
+    <div class="message-box" id="messageBox">
+      <h2>🎉 Surprise! 🎉</h2>
+      <p>You are amazing, and someone out there wants to make you smile today. 😊</p>
+    </div>
+  </div>
+
+  <script>
+    function openMessage() {
+      document.getElementById("messageBox").style.display = "block";
+    }
+  </script>
+</body>
+</html>
